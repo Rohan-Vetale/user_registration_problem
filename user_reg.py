@@ -57,39 +57,44 @@ def check_password():
     pattern = r'\w{8}'
     result = False
     analaysis= "Invalid password"
-    results = re.match(pattern,user_input)
+    results = re.search(pattern,user_input)
     if results:
         analaysis = "Consist of 8 characters "
         #pattern should be consisting of atleast one character upper case
-        pattern = r'[A-Z]+'
-        result2 = re.match(pattern,user_input)
+        pattern = r'[A-Z]'
+        result2 = re.search(pattern,user_input)
         if result2:
             analaysis += " , has one or more upper case characters "
+            #checking for atleast one numeric character
+            pattern = r'[0-9]'
+            result3 = re.search(pattern,user_input)
+            if result3:
+                analaysis += " , has one or more numeric character(s) "
             
     print(analaysis)
                 
     
 
-result1 = first_name_check()
-result2 = last_name_check()
-result3 = email_valid()
-result4 = check_phone_num()
-result5 = check_password()
+result_1 = first_name_check()
+result_2 = last_name_check()
+result_3 = email_valid()
+result_4 = check_phone_num()
+result_5 = check_password()
 
 
-if result1 :
+if result_1 :
     print('User has entered the first name correctly')
     
-if result2 :
+if result_2 :
     print('User has entered the last name correctly')
     
-if result3 :
+if result_3 :
     print('User has entered the email correctly')
     
-if result4 :
+if result_4 :
     print('User has entered the phone number correctly')
     
-if result5 :
+if result_5 :
     print('User has entered the password correctly')
     
     
