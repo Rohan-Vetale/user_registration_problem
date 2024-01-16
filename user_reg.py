@@ -40,9 +40,22 @@ def email_valid():
         result = re.match(pattern,user_input)
     return result
 
+def check_phone_num():
+    #UC3
+    #phone number should be country code and then space and then a 10 digit phone number that starts with 6-9
+    user_input = input("Enter your country code and then space and your 10 digit phone number -> ")
+    pattern = r'^\d{1,3}\s[6-9]\d{9}$'
+    result = False
+    if len(user_input) > 2:
+        result = re.match(pattern,user_input)
+    return result
+
+
 result1 = first_name_check()
 result2 = last_name_check()
 result3 = email_valid()
+result4 = check_phone_num()
+
 if result1 :
     print('User has entered the first name correctly')
     
@@ -52,4 +65,7 @@ if result2 :
 if result3 :
     print('User has entered the email correctly')
     
-
+if result4 :
+    print('User has entered the phone number correctly')
+    
+    
