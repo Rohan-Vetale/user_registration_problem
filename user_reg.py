@@ -53,18 +53,29 @@ def check_phone_num():
 def check_password():
     #UC5
     #Password should be min 8 char
-    user_input = input("Enter your password of minimum 8 characters -> ")
-    pattern = r'^\w{8}'
+    user_input = input("Enter your password of minimum 8 characters and with one uppercase character -> ")
+    pattern = r'\w{8}'
     result = False
-    if len(user_input) > 2:
-        result = re.match(pattern,user_input)
-    return result
+    analaysis= "Invalid password"
+    results = re.match(pattern,user_input)
+    if results:
+        analaysis = "Consist of 8 characters "
+        #pattern should be consisting of atleast one character upper case
+        pattern = r'[A-Z]+'
+        result2 = re.match(pattern,user_input)
+        if result2:
+            analaysis += " , has one or more upper case characters "
+            
+    print(analaysis)
+                
+    
 
 result1 = first_name_check()
 result2 = last_name_check()
 result3 = email_valid()
 result4 = check_phone_num()
 result5 = check_password()
+
 
 if result1 :
     print('User has entered the first name correctly')
