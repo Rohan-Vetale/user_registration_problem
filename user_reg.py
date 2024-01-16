@@ -51,13 +51,12 @@ def check_phone_num():
     return result
 
 def check_password():
-    #UC5
+    #UC5 - UC8
     #Password should be min 8 char
     user_input = input("Enter your password of minimum 8 characters and with one uppercase character -> ")
     pattern = r'\w{8}'
-    result = False
     analaysis= "Invalid password"
-    results = re.search(pattern,user_input)
+    results = re.match(pattern,user_input)
     if results:
         analaysis = "Consist of 8 characters "
         #pattern should be consisting of atleast one character upper case
@@ -70,6 +69,12 @@ def check_password():
             result3 = re.search(pattern,user_input)
             if result3:
                 analaysis += " , has one or more numeric character(s) "
+                pattern = r'[!@#$%^&*()]{1}'
+                result4 = re.search(pattern,user_input)
+                if result4:
+                    analaysis += " and has exactly one special character. "
+                    #[!@#$%^&*()+]
+                
             
     print(analaysis)
                 
