@@ -15,7 +15,16 @@ import re
 
 def first_name_check():
     #UC1
-    user_input = input("Enter First name starts with Cap and has min. 3 characters ->")
+    user_input = input("Enter First name starts with Cap and has min. 3 characters -> ")
+    pattern = r'^[A-Z].+'
+    result = False
+    if len(user_input) > 2:
+        result = re.match(pattern,user_input)
+    return result
+
+def last_name_check():
+    #UC1
+    user_input = input("Enter Last name starts with Cap and has min. 3 characters -> ")
     pattern = r'^[A-Z].+'
     result = False
     if len(user_input) > 2:
@@ -23,8 +32,12 @@ def first_name_check():
     return result
 
 
-result = first_name_check()
-if result:
+result1 = first_name_check()
+result2 = last_name_check()
+if result1 :
     print('User has entered the first name correctly')
+    
+if result2 :
+    print('User has entered the last name correctly')
     
 
