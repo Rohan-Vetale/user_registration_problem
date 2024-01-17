@@ -21,11 +21,11 @@ def first_name_check(user_input):
     Return:None
     """
     
-    pattern = r'^[A-Z].+'
-    if len(user_input) > 2:
-        result = re.match(pattern,user_input)
-        if result:
-            return True
+    pattern = r'^[A-Z].{2,}'
+    
+    result = re.match(pattern,user_input)
+    if result:
+        return True
     return False
 
 def last_name_check(user_input):
@@ -35,12 +35,11 @@ def last_name_check(user_input):
     Parameter: user_input : string value of user input
     Return:None
     """
-    pattern = r'^[A-Z].+'
+    pattern = r'^[A-Z].{2,}'
     
-    if len(user_input) > 2:
-        result = re.match(pattern,user_input)
-        if result:
-            return True
+    result = re.match(pattern,user_input)
+    if result:
+        return True
     return False
 
 def email_valid(user_input):
@@ -51,25 +50,25 @@ def email_valid(user_input):
     Return:None
     """
     pattern = r'^[\w.-]+@([\w-]+\.[\w.-]+)$'
-    if len(user_input) > 2:
-        result = re.match(pattern,user_input)
-        if result:
-            return True
+    
+    result = re.match(pattern,user_input)
+    if result:
+        return True
     return False
 
 def check_phone_num(user_input):
     #UC4
     #phone number should be country code and then space and then a 10 digit phone number that starts with 6-9
     """
-    Description: This function checks for the first name validation
+    Description: This function checks for the phone number validation
     Parameter: user_input : string value of user input
     Return:None
     """
     pattern = r'^\d{1,3}\s[6-9]\d{9}$'
-    if len(user_input) > 2:
-        result = re.match(pattern,user_input)
-        if result:
-            return True
+    
+    result = re.match(pattern,user_input)
+    if result:
+        return True
     return False
 
 def check_password(user_input):
@@ -108,11 +107,11 @@ def check_password(user_input):
                 
     
 if __name__ == '__main__':
-    result_1 = first_name_check()
-    result_2 = last_name_check()
-    result_3 = email_valid()
-    result_4 = check_phone_num()
-    result_5 = check_password()
+    result_1 = first_name_check("Rohan")
+    result_2 = last_name_check("Vetale")
+    result_3 = email_valid("vetalerohan@gmail.com")
+    result_4 = check_phone_num("8356855555")
+    result_5 = check_password("Rbv12803@")
 
 
     if result_1 :
