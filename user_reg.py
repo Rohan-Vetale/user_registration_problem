@@ -2,58 +2,84 @@
 
 @Author: Rohan Vetale
 
-@Date: 2024-01-16 09:00:30
+@Date: 2024-01-17 09:00:30
 
 @Last Modified by: Rohan Vetale
 
-@Last Modified time: 2024-01-16 18:00:30
+@Last Modified time: 2024-01-17 18:00:30
 
 @Title : Program to use regex for pattern matching while user registration
 
 ''' 
 import re
 
-def first_name_check():
+def first_name_check(user_input):
     #UC1
-    user_input = input("Enter First name starts with Cap and has min. 3 characters -> ")
+    """
+    Description: This function checks for the first name validation
+    Parameter: None
+    Return:None
+    """
+    
     pattern = r'^[A-Z].+'
-    result = False
     if len(user_input) > 2:
         result = re.match(pattern,user_input)
-    return result
+        if result:
+            return True
+    return False
 
-def last_name_check():
+def last_name_check(user_input):
     #UC2
-    user_input = input("Enter Last name starts with Cap and has min. 3 characters -> ")
+    """
+    Description: This function checks for the last name validation
+    Parameter: user_input : string value of user input
+    Return:None
+    """
     pattern = r'^[A-Z].+'
-    result = False
+    
     if len(user_input) > 2:
         result = re.match(pattern,user_input)
-    return result
+        if result:
+            return True
+    return False
 
-def email_valid():
+def email_valid(user_input):
     #UC3
-    user_input = input("Enter your valid email address completely -> ")
+    """
+    Description: This function checks for the email validation
+    Parameter: user_input : string value of user input
+    Return:None
+    """
     pattern = r'^[\w.-]+@([\w-]+\.[\w.-]+)$'
-    result = False
     if len(user_input) > 2:
         result = re.match(pattern,user_input)
-    return result
+        if result:
+            return True
+    return False
 
-def check_phone_num():
+def check_phone_num(user_input):
     #UC4
     #phone number should be country code and then space and then a 10 digit phone number that starts with 6-9
-    user_input = input("Enter your country code and then space and your 10 digit phone number -> ")
+    """
+    Description: This function checks for the first name validation
+    Parameter: user_input : string value of user input
+    Return:None
+    """
     pattern = r'^\d{1,3}\s[6-9]\d{9}$'
-    result = False
     if len(user_input) > 2:
         result = re.match(pattern,user_input)
-    return result
+        if result:
+            return True
+    return False
 
-def check_password():
+def check_password(user_input):
     #UC5 - UC8
     #Password should be min 8 char
-    user_input = input("Enter your password of minimum 8 characters and with one uppercase character -> ")
+    """
+    Description: This function checks for the password validation
+    Parameter: user_input : string value of user input
+    Return:None
+    """
     pattern = r'\w{8}'
     analaysis= "Invalid password"
     results = re.match(pattern,user_input)
@@ -74,30 +100,32 @@ def check_password():
                 if result4:
                     analaysis += " and has exactly one special character. "
                     #r'(?=[!@#$%^&*()]*[!@#$%^&*()])(?!.*[!@#$%^&*()].*[!@#$%^&*()])^[!@#$%^&*()]+$'
+                    return True
+    return False
                 
             
-    print(analaysis)
+    
                 
     
+if __name__ == '__main__':
+    result_1 = first_name_check()
+    result_2 = last_name_check()
+    result_3 = email_valid()
+    result_4 = check_phone_num()
+    result_5 = check_password()
 
-result_1 = first_name_check()
-result_2 = last_name_check()
-result_3 = email_valid()
-result_4 = check_phone_num()
-result_5 = check_password()
 
-
-if result_1 :
-    print('User has entered the first name correctly')
-    
-if result_2 :
-    print('User has entered the last name correctly')
-    
-if result_3 :
-    print('User has entered the email correctly')
-    
-if result_4 :
-    print('User has entered the phone number correctly')
+    if result_1 :
+        print('User has entered the first name correctly')
+        
+    if result_2 :
+        print('User has entered the last name correctly')
+        
+    if result_3 :
+        print('User has entered the email correctly')
+        
+    if result_4 :
+        print('User has entered the phone number correctly')
     
 
     
