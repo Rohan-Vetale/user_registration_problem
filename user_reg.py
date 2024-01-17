@@ -69,11 +69,11 @@ def check_password():
             result3 = re.search(pattern,user_input)
             if result3:
                 analaysis += " , has one or more numeric character(s) "
-                pattern = r'[!@#$%^&*()]{1}'
-                result4 = re.search(pattern,user_input)
+                pattern = r'^(?=(.*[!@#$%^&*()]){1})(?!(.*[!@#$%^&*()]){2})[a-zA-Z0-9!@#$%^&*()]*$'
+                result4 = re.match(pattern, user_input)
                 if result4:
                     analaysis += " and has exactly one special character. "
-                    #[!@#$%^&*()+]
+                    #r'(?=[!@#$%^&*()]*[!@#$%^&*()])(?!.*[!@#$%^&*()].*[!@#$%^&*()])^[!@#$%^&*()]+$'
                 
             
     print(analaysis)
@@ -99,8 +99,7 @@ if result_3 :
 if result_4 :
     print('User has entered the phone number correctly')
     
-if result_5 :
-    print('User has entered the password correctly')
+
     
     
     
