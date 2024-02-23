@@ -17,8 +17,8 @@ def first_name_check(user_input):
     #UC1
     """
     Description: This function checks for the first name validation
-    Parameter: None
-    Return:None
+    Parameter: user_input : Input given by the user in string
+    Return: Boolean value of whether first name is valid
     """
     
     pattern = r'^[A-Z].{2,}'
@@ -33,7 +33,7 @@ def last_name_check(user_input):
     """
     Description: This function checks for the last name validation
     Parameter: user_input : string value of user input
-    Return:None
+    Return:Boolean value of whether last name is valid
     """
     pattern = r'^[A-Z].{2,}'
     
@@ -47,7 +47,7 @@ def email_valid(user_input):
     """
     Description: This function checks for the email validation
     Parameter: user_input : string value of user input
-    Return:None
+    Return: Boolean value of whether email is valid
     """
     pattern = r'^[\w.-]+@([\w-]+\.[\w.-]+)$'
     
@@ -62,7 +62,7 @@ def check_phone_num(user_input):
     """
     Description: This function checks for the phone number validation
     Parameter: user_input : string value of user input
-    Return:None
+    Return: Boolean value of whether phone number is valid
     """
     pattern = r'^\d{1,3}\s[6-9]\d{9}$'
     
@@ -77,7 +77,7 @@ def check_password(user_input):
     """
     Description: This function checks for the password validation
     Parameter: user_input : string value of user input
-    Return:None
+    Return: Boolean value of whether password is valid
     """
     pattern = r'\w{8}'
     analaysis= "Invalid password"
